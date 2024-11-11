@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+IFS="|" read -r -a CLI_OPTIONS <<< "$CLI_OPTIONS_STRING"
+IMAGENAME=${CLI_OPTIONS[0]%%:*}
+if [[ ${CLI_OPTIONS[0]} == *":"* ]]; then
+    TAGNAME=${CLI_OPTIONS[0]##*:}
+else
+    TAGNAME="latest"
+fi
+
+s6-setuidgid abc d2 "/output/${IMAGENAME}-${TAGNAME}.d2" "/output/${IMAGENAME}-${TAGNAME}.svg"
+
+chmod 644 "/output/${IMAGENAME}-${TAGNAME}.d2" "/output/${IMAGENAME}-${TAGNAME}.svg"
