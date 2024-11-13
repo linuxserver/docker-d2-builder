@@ -104,7 +104,7 @@ cat <<EOF > "/output/${OUTPUTNAME}"
 
 EOF
 
-echo "${IMAGENAME}: {" >> "/output/${OUTPUTNAME}"
+echo "\"${IMAGENAME}:${TAGNAME}\": {" >> "/output/${OUTPUTNAME}"
 
 cat <<EOF >> "/output/${OUTPUTNAME}"
   docker-mods
