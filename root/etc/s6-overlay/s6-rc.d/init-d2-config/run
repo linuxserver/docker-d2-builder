@@ -16,13 +16,18 @@ OUTPUTNAME="${IMAGENAME}-${TAGNAME}.d2"
 mkdir -p "/work/merge"
 
 if [[ ! ${IMAGENAME} == "baseimage"* ]]; then
-    git clone --depth=1 "https://github.com/linuxserver/docker-${IMAGENAME}" "/tmp/${IMAGENAME}"
-    IMAGEBRANCH=$(grep -Po "/tmp/${IMAGENAME}/jenkins-vars.yml" -e "^release_tag: \K(.*)$" | tr -d '"')
-    if [[ "${IMAGEBRANCH}" != "${TAGNAME}" ]]; then
-        cd "/tmp/${IMAGENAME}" || exit
-        git remote set-branches origin "${TAGNAME}"
-        git fetch --depth=1
-        git checkout "${TAGNAME}"
+    if [[ -n ${LOCAL} ]]; then
+        mkdir -p "/tmp/${IMAGENAME}"
+        cp -R "/input/docker-${IMAGENAME}/"* "/tmp/${IMAGENAME}/"
+    else
+        git clone --depth=1 "https://github.com/linuxserver/docker-${IMAGENAME}" "/tmp/${IMAGENAME}"
+        IMAGEBRANCH=$(grep -Po "/tmp/${IMAGENAME}/jenkins-vars.yml" -e "^release_tag: \K(.*)$" | tr -d '"')
+        if [[ "${IMAGEBRANCH}" != "${TAGNAME}" ]]; then
+            cd "/tmp/${IMAGENAME}" || exit
+            git remote set-branches origin "${TAGNAME}"
+            git fetch --depth=1
+            git checkout "${TAGNAME}"
+        fi
     fi
 
     BASEIMAGE=$(grep "/tmp/${IMAGENAME}/Dockerfile" -e "^FROM" | tail -l)
@@ -37,13 +42,18 @@ else
 fi
 
 if [[ ${BASEIMAGENAME} =~ "baseimage" ]]; then
-    git clone --depth=1 "https://github.com/linuxserver/docker-${BASEIMAGENAME}" "/tmp/${BASEIMAGENAME}"
-    BASEBRANCH=$(grep -Po "/tmp/${BASEIMAGENAME}/jenkins-vars.yml" -e "^release_tag: \K(.*)$" | tr -d '"')
-    if [[ "${BASEBRANCH}" != "${BASEIMAGETAG}" ]]; then
-        cd "/tmp/${BASEIMAGENAME}" || exit
-        git remote set-branches origin "${BASEIMAGETAG}"
-        git fetch --depth=1
-        git checkout "${BASEIMAGETAG}"
+    if [[ -n ${LOCAL} ]]; then
+        mkdir -p "/tmp/${BASEIMAGENAME}"
+        cp -R "/input/docker-${BASEIMAGENAME}/"* "/tmp/${BASEIMAGENAME}/"
+    else
+        git clone --depth=1 "https://github.com/linuxserver/docker-${BASEIMAGENAME}" "/tmp/${BASEIMAGENAME}"
+        BASEBRANCH=$(grep -Po "/tmp/${BASEIMAGENAME}/jenkins-vars.yml" -e "^release_tag: \K(.*)$" | tr -d '"')
+        if [[ "${BASEBRANCH}" != "${BASEIMAGETAG}" ]]; then
+            cd "/tmp/${BASEIMAGENAME}" || exit
+            git remote set-branches origin "${BASEIMAGETAG}"
+            git fetch --depth=1
+            git checkout "${BASEIMAGETAG}"
+        fi
     fi
 fi
 
@@ -58,13 +68,18 @@ while [[ ${BASEIMAGENAME} =~ "baseimage" ]]; do
     else
         BASELIST="\"${BASEIMAGE}\""
     fi
-    git clone --depth=1 "https://github.com/linuxserver/docker-${BASEIMAGENAME}" "/tmp/${BASEIMAGENAME}"
-    BASEBRANCH=$(grep -Po "/tmp/${BASEIMAGENAME}/jenkins-vars.yml" -e "^release_tag: \K(.*)$" | tr -d '"')
-    if [[ "${BASEBRANCH}" != "${BASEIMAGETAG}" ]]; then
-        cd "/tmp/${BASEIMAGENAME}" || exit
-        git remote set-branches origin "${BASEIMAGETAG}"
-        git fetch --depth=1
-        git checkout "${BASEIMAGETAG}"
+    if [[ -n ${LOCAL} ]]; then
+        mkdir -p "/tmp/${BASEIMAGENAME}"
+        cp -R "/input/docker-${BASEIMAGENAME}/"* "/tmp/${BASEIMAGENAME}/"
+    else
+        git clone --depth=1 "https://github.com/linuxserver/docker-${BASEIMAGENAME}" "/tmp/${BASEIMAGENAME}"
+        BASEBRANCH=$(grep -Po "/tmp/${BASEIMAGENAME}/jenkins-vars.yml" -e "^release_tag: \K(.*)$" | tr -d '"')
+        if [[ "${BASEBRANCH}" != "${BASEIMAGETAG}" ]]; then
+            cd "/tmp/${BASEIMAGENAME}" || exit
+            git remote set-branches origin "${BASEIMAGETAG}"
+            git fetch --depth=1
+            git checkout "${BASEIMAGETAG}"
+        fi
     fi
     BASEIMAGE=$(grep "/tmp/${BASEIMAGENAME}/Dockerfile" -e "^FROM" | tail -1)
     BASEIMAGE=${BASEIMAGE##*/}
