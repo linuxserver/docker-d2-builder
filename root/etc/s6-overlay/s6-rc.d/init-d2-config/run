@@ -94,13 +94,13 @@ done
 shopt -s globstar
 
 cat <<EOF > "/output/${OUTPUTNAME}"
-  vars: {
-    d2-config: {
-      layout-engine: elk
-      theme-id: 1
-      dark-theme-id: 200
-    }
+vars: {
+  d2-config: {
+    layout-engine: elk
+    theme-id: 1
+    dark-theme-id: 200
   }
+}
 
 EOF
 

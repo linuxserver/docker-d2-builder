@@ -22,7 +22,7 @@ docker pull lscr.io/linuxserver/d2-builder:latest && \
 docker run -d --rm -v /tmp/d2:/output -v /opt/repos:/input:ro -e PUID=1000 -e PGID=1000 -e LOCAL=true lscr.io/linuxserver/d2-builder:latest mastodon:latest
 ```
 
-Generated svg files will be created in `/output`.
+Generated d2 and svg files will be created in `/output`. If `RAW=true` then only d2 files will be created.
 
 ## Versions
 

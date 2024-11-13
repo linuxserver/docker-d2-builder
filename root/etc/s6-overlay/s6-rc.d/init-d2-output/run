@@ -9,6 +9,9 @@ else
     TAGNAME="latest"
 fi
 
-s6-setuidgid abc d2 "/output/${IMAGENAME}-${TAGNAME}.d2" "/output/${IMAGENAME}-${TAGNAME}.svg"
-
-chmod 644 "/output/${IMAGENAME}-${TAGNAME}.d2" "/output/${IMAGENAME}-${TAGNAME}.svg"
+if [[ -z ${RAW} ]]; then
+    s6-setuidgid abc d2 "/output/${IMAGENAME}-${TAGNAME}.d2" "/output/${IMAGENAME}-${TAGNAME}.svg"
+    chmod 644 "/output/${IMAGENAME}-${TAGNAME}.d2" "/output/${IMAGENAME}-${TAGNAME}.svg"
+else
+    chmod 644 "/output/${IMAGENAME}-${TAGNAME}.d2"
+fi
