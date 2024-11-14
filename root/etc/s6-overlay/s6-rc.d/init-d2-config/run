@@ -138,10 +138,10 @@ echo "}" >> "/output/${OUTPUTNAME}"
 
 if [[ -n ${BASELIST} ]]; then
 cat <<EOF >> "/output/${OUTPUTNAME}"
-  Base Images: {
-    ${BASELIST}
-  }
-  ${IMAGENAME} <- Base Images
+Base Images: {
+  ${BASELIST}
+}
+${IMAGENAME} <- Base Images
 EOF
 fi
 
