@@ -141,7 +141,7 @@ cat <<EOF >> "/output/${OUTPUTNAME}"
 Base Images: {
   ${BASELIST}
 }
-${IMAGENAME} <- Base Images
+"${IMAGENAME}:${TAGNAME}" <- Base Images
 EOF
 fi
 
