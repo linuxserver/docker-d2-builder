@@ -11,7 +11,11 @@ else
     TAGNAME="latest"
 fi
 
-OUTPUTNAME="${IMAGENAME}-${TAGNAME}.d2"
+if [[ -n ${LOCAL} ]]; then
+    OUTPUTNAME="${IMAGENAME}-${TAGNAME}-LOCAL.d2"
+else
+    OUTPUTNAME="${IMAGENAME}-${TAGNAME}.d2"
+fi
 
 mkdir -p "/work/merge"
 
