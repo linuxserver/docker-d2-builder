@@ -4,7 +4,7 @@
 
 Expects to run as part of the LSIO CI process. Not for public consumption.
 
-## Running against image
+## Running against local project
 
 If you need to test functionality just run:
 
@@ -13,16 +13,7 @@ docker pull lscr.io/linuxserver/d2-builder:latest && \
 docker run -d --rm -v /tmp/d2:/output -e PUID=1000 -e PGID=1000 lscr.io/linuxserver/d2-builder:latest mastodon:latest
 ```
 
-## Running against local project
-
-If you need to test functionality, make sure you have the necessary repos cloned locally and the correct branches checked out then just run:
-
-```bash
-docker pull lscr.io/linuxserver/d2-builder:latest && \
-docker run -d --rm -v /tmp/d2:/output -v /opt/repos:/input:ro -e PUID=1000 -e PGID=1000 -e LOCAL=true lscr.io/linuxserver/d2-builder:latest mastodon:latest
-```
-
-Generated d2 and svg files will be created in `/output`. If `RAW=true` then only d2 files will be created.
+Generated svg files will be created in `/output`.
 
 ## Versions
 
