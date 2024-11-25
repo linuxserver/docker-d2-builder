@@ -97,7 +97,7 @@ done
 
 shopt -s globstar
 
-if [[ -n ${SVG} ]]; then
+if [[ -z ${RAW} ]]; then
 cat <<EOF > "/output/${OUTPUTNAME}"
 vars: {
   d2-config: {
