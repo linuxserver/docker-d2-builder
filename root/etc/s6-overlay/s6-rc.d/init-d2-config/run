@@ -150,3 +150,7 @@ EOF
 fi
 
 shopt -u globstar
+
+lsiown abc:abc \
+    /output \
+    "/output/${OUTPUTNAME}"
