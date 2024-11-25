@@ -97,6 +97,7 @@ done
 
 shopt -s globstar
 
+if [[ -z ${RAW} ]]; then
 cat <<EOF > "/output/${OUTPUTNAME}"
 vars: {
   d2-config: {
@@ -107,6 +108,7 @@ vars: {
 }
 
 EOF
+fi
 
 echo "\"${IMAGENAME}:${TAGNAME}\": {" >> "/output/${OUTPUTNAME}"
 
