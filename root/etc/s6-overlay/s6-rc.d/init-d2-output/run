@@ -15,7 +15,7 @@ else
     OUTPUTNAME="${IMAGENAME}-${TAGNAME}"
 fi
 
-if [[ -z ${RAW} ]]; then
+if [[ -n ${SVG} ]]; then
     s6-setuidgid abc d2 "/output/${OUTPUTNAME}.d2" "/output/${OUTPUTNAME}.svg"
     chmod 644 "/output/${OUTPUTNAME}.d2" "/output/${OUTPUTNAME}.svg"
 else
