@@ -92,7 +92,9 @@ while [[ ${BASEIMAGENAME} =~ "baseimage" ]]; do
 done
 
 for i in /tmp/*; do
-    cp -R "${i}/root" "/work/merge"
+    if [[ -d "${i}/root" ]];then
+        cp -R "${i}/root" "/work/merge"
+    fi
 done
 
 shopt -s globstar
