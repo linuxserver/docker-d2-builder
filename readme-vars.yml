@@ -1,6 +1,7 @@
 ---
 # project information
 project_name: d2-builder
+project_categories: "Internal"
 full_custom_readme: |
   {% raw -%}
   # linuxserver/d2-builder
