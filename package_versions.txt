@@ -52,10 +52,10 @@ github.com/yuin/goldmark                       v1.7.4                           
 go.uber.org/multierr                           v1.11.0                               go-module    
 golang.org/x/exp                               v0.0.0-20240909161429-701f63a606c0    go-module    
 golang.org/x/image                             v0.20.0                               go-module    
-golang.org/x/net                               v0.29.0                               go-module    
-golang.org/x/sys                               v0.25.0                               go-module    
-golang.org/x/term                              v0.24.0                               go-module    
-golang.org/x/text                              v0.18.0                               go-module    
+golang.org/x/net                               v0.35.0                               go-module    
+golang.org/x/sys                               v0.30.0                               go-module    
+golang.org/x/term                              v0.29.0                               go-module    
+golang.org/x/text                              v0.22.0                               go-module    
 golang.org/x/xerrors                           v0.0.0-20240903120638-7835f813f4da    go-module    
 gonum.org/v1/plot                              v0.14.0                               go-module    
 gopkg.in/yaml.v2                               v2.4.0                                go-module    
@@ -81,8 +81,8 @@ ncurses-terminfo-base                          6.5_p20241006-r3                 
 netcat-openbsd                                 1.226.1.1-r0                          apk          
 nghttp2-libs                                   1.64.0-r0                             apk          
 oniguruma                                      6.9.9-r0                              apk          
-oss.terrastruct.com/d2                         v0.6.9                                go-module    
-oss.terrastruct.com/util-go                    v0.0.0-20241005222610-44c011a04896    go-module    
+oss.terrastruct.com/d2                         v0.7.0                                go-module    
+oss.terrastruct.com/util-go                    v0.0.0-20250213174338-243d8661088a    go-module    
 pcre2                                          10.43-r0                              apk          
 procps-ng                                      4.0.4-r2                              apk          
 readline                                       8.2.13-r0                             apk          
