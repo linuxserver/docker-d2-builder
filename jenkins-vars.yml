@@ -9,7 +9,7 @@ ls_branch: main
 unraid_template: false
 repo_vars:
   - EXT_GIT_BRANCH = 'master'
-  - EXT_USER = 'terrastruct'
+  - EXT_USER = 'd2lang'
   - EXT_REPO = 'd2'
   - BUILD_VERSION_ARG = 'D2_VERSION'
   - LS_USER = 'linuxserver'
