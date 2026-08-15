@@ -21,7 +21,7 @@ RUN \
   mkdir -p /tmp/d2 /output /work && \
   if [ -z ${D2_VERSION+x} ]; then \
     D2_VERSION=$(curl -s https://api.github.com/repos/d2lang/d2/releases/latest \
-    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
+    | jq -r '.tag_name'); \
   fi && \
   curl -o \
     /tmp/d2.tar.gz -L \
