@@ -20,8 +20,8 @@ coreutils-fmt                       9.11-r0                             apk
 coreutils-sha512sum                 9.11-r0                             apk          
 curl                                8.23.0-r0                           apk          
 findutils                           4.10.0-r1                           apk          
-git                                 2.54.0-r0                           apk          
-git-init-template                   2.54.0-r0                           apk          
+git                                 2.54.1-r0                           apk          
+git-init-template                   2.54.1-r0                           apk          
 github.com/PuerkitoBio/goquery      v1.12.0                             go-module    
 github.com/alecthomas/chroma/v2     v2.27.0                             go-module    
 github.com/andybalholm/brotli       v1.2.2                              go-module    
